@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="Selenium_Web_Driver">
+    <property environment="env"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="WebDriver.classpath">
+        <pathelement location="bin"/>
+       <pathelement location="D:/EclipseWorksSpace/ComcastAutomation/Jars/selenium-server-standalone-2.32.0.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="TestScripts">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="TestScripts"/>
+            <classpath refid="WebDriver.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    
+    <!-- runATFTestSuite - This target executes all the test cases that are mapped in the test
+    	 suite file.-->
+     <target name="runATFTestSuite" depends="clean,build,runDemoTestSuite,junitreport"> 
+     </target>
+	   <target name="runDemoTestSuite" >
+	        <mkdir dir="${junit.output.dir}"/>
+	        <junit fork="yes" printsummary="withOutAndErr">
+	            <formatter type="xml"/>
+	            <test name="SuiteRunner.runDemoTestSuite" todir="${junit.output.dir}"/>
+	            <classpath refid="WebDriver.classpath"/>
+	        </junit>
+	    </target>
+    
+   <!-- runATFRegression - This target executes all the test cases that have been 
+   		automated till date.-->
+    <target name="runATFRegressionTC" depends="clean,build,runATFRegression,junitreport"> 
+     </target>
+	  	<target name="runATFRegression" >
+	        <mkdir dir="${junit.output.dir}"/>
+	        <junit fork="yes" printsummary="withOutAndErr">
+	            <formatter type="xml"/>
+	            <test name="SuiteRunner.runATFRegression" todir="${junit.output.dir}"/>
+	            <classpath refid="WebDriver.classpath"/>
+	        </junit>
+	    </target>
+    
+  <!-- runATF - This target executes all the test cases that have been 
+   		mapped for Comcast Demo.-->
+  <target name="runATF" depends="clean,build,FinalDemoClass,junitreport"> 
+     </target>
+	  <target name="FinalDemoClass" >
+	        <mkdir dir="${junit.output.dir}"/>
+	        <junit fork="yes" printsummary="withOutAndErr">
+	            <formatter type="xml"/>
+	            <test name="Comcast_Demo.FinalDemoClass" todir="${junit.output.dir}"/>
+	            <classpath refid="WebDriver.classpath"/>
+	        </junit>
+	    </target>
+	    
+     <!-- runATF - This target executes all the test cases that have been 
+   		mapped for Comcast Demo.-->
+   		<target name="runsATF" depends="clean,build,DemoWrapperClass,junitreport"> 
+     </target>
+	  	<target name="DemoWrapperClass" >
+	        <mkdir dir="${junit.output.dir}"/>
+	        <junit fork="yes" printsummary="withOutAndErr">
+	            <formatter type="xml"/>
+	            <test name="Comcast_Demo.DemoWrapperClass" todir="${junit.output.dir}"/>
+	            <classpath refid="WebDriver.classpath"/>
+	        </junit>
+	    </target>
+
+  	<!-- runATF - This target executes all the test cases that have been 
+   		mapped for Comcast Demo using multiple browser.-->
+   		<!--<target name="runATFOnMB" depends="clean,build,DemoClass_MB,junitreport"> 
+     </target>
+	  	<target name="DemoClass_MB" >
+	        <mkdir dir="${junit.output.dir}"/>
+	        <junit fork="yes" printsummary="withOutAndErr">
+	            <formatter type="xml"/>
+	            <test name="Comcast_Demo.DemoClass_MB" todir="${junit.output.dir}"/>
+	            <classpath refid="WebDriver.classpath"/>
+	        </junit>
+	    </target>-->
+	
+	
+	<target name="runATFOnMB" depends="clean,build,FinalDemoClass1,DemoClass_MB,junitreport"> 
+		    </target>
+		  <target name="FinalDemoClass1" >
+		        <mkdir dir="${junit.output.dir}"/>
+		        <junit fork="yes" printsummary="withOutAndErr">
+		            <formatter type="xml"/>
+		            <test name="SuiteRunner.screenShotsCapturing" todir="${junit.output.dir}"/>
+		            <classpath refid="WebDriver.classpath"/>
+		        </junit>
+		    </target>
+
+		   <target name="DemoClass_MB" >
+		        <mkdir dir="${junit.output.dir}"/>
+		        <junit fork="yes" printsummary="withOutAndErr">
+		            <formatter type="xml"/>
+		            <test name="SuiteRunner.screenShotsCapturing" todir="${junit.output.dir}"/>
+		            <classpath refid="WebDriver.classpath"/>
+		        </junit>
+		    </target>
+	
+	<!-- runATF - This target is for screenshot feature testing.-->
+	   		<target name="screenShotFeature" depends="clean,build,screenShotsCapturing,junitreport"> 
+	     </target>
+		  	<target name="screenShotsCapturing" >
+		        <mkdir dir="${junit.output.dir}"/>
+		        <junit fork="yes" printsummary="withOutAndErr">
+		            <formatter type="xml"/>
+		            <test name="SuiteRunner.screenShotsCapturing" todir="${junit.output.dir}"/>
+		            <classpath refid="WebDriver.classpath"/>
+		        </junit>
+			</target>
+	
+	<!-- runATF - This target is for temporary testing.-->
+   		<target name="TempTesting" depends="clean,build,TempForTesting,junitreport"> 
+     </target>
+	  	<target name="TempForTesting" >
+	        <mkdir dir="${junit.output.dir}"/>
+	        <junit fork="yes" printsummary="withOutAndErr">
+	            <formatter type="xml"/>
+	            <test name="SuiteRunner.TempForTesting" todir="${junit.output.dir}"/>
+	            <classpath refid="WebDriver.classpath"/>
+	        </junit>
+		</target>
+
+	
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>

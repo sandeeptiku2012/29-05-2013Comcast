@@ -1,0 +1,25 @@
+[0520/124705:INFO:chromedriver_server.cc(76)] Handling request: /status 
+[0520/124705:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"","status":0,"value":{"build":{"version":"alpha"},"os":{"arch":"x86","name":"Windows NT","version":"5.1 SP3"}}}
+[0520/124705:INFO:chromedriver_server.cc(76)] Handling request: /session {"desiredCapabilities":{"platform":"ANY","browserName":"chrome","version":""}}
+[0520/124705:INFO:chrome_launcher.cc(74)] Using chrome from C:\Program Files\Google\Chrome\Application\chrome.exe
+[0520/124706:INFO:chromedriver_server.cc(81)] Done handling request: 303 
+[0520/124706:INFO:chromedriver_server.cc(76)] Handling request: /session/f03b84e52ecf8e6be5682424763590c0 
+[0520/124706:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"f03b84e52ecf8e6be5682424763590c0","status":0,"value":{"acceptSslCerts":true,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"browserName":"chrome","cssSelectorsEnabled":true,"databaseEnabled":true,"driverVersion":"0.8","handlesAlerts":true,"javascriptEnabled":true,"locationContextEnabled":true,"nativeEvents":true,"platform":"Windows NT","rotatable":false,"takesScreenshot":true,"version":"26.0.1410.64","webStorageEnabled":true}}
+[0520/124706:INFO:chromedriver_server.cc(76)] Handling request: /session/f03b84e52ecf8e6be5682424763590c0/url {"url":"http://www.gmail.com/"}
+[0520/124712:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"f03b84e52ecf8e6be5682424763590c0","status":0,"value":null}
+[0520/124712:INFO:chromedriver_server.cc(76)] Handling request: /session/f03b84e52ecf8e6be5682424763590c0/element {"using":"id","value":"Email"}
+[0520/124712:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"f03b84e52ecf8e6be5682424763590c0","status":0,"value":{"ELEMENT":"0.2089460683055222:1"}}
+[0520/124712:INFO:chromedriver_server.cc(76)] Handling request: /session/f03b84e52ecf8e6be5682424763590c0/element/0.2089460683055222:1/value {"id":"0.2089460683055222:1","value":["sameer.valtech"]}
+[0520/124713:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"f03b84e52ecf8e6be5682424763590c0","status":0,"value":null}
+[0520/124713:INFO:chromedriver_server.cc(76)] Handling request: /session/f03b84e52ecf8e6be5682424763590c0/element {"using":"id","value":"Passwd"}
+[0520/124713:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"f03b84e52ecf8e6be5682424763590c0","status":0,"value":{"ELEMENT":"0.2089460683055222:2"}}
+[0520/124713:INFO:chromedriver_server.cc(76)] Handling request: /session/f03b84e52ecf8e6be5682424763590c0/element/0.2089460683055222:2/value {"id":"0.2089460683055222:2","value":["asd"]}
+[0520/124713:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"f03b84e52ecf8e6be5682424763590c0","status":0,"value":null}
+[0520/125022:INFO:chromedriver_server.cc(76)] Handling request: /session/22489c6d3a70860363ea49c17c038ecf 
+[0520/125023:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"22489c6d3a70860363ea49c17c038ecf","status":0,"value":null}
+[0520/125023:INFO:chromedriver_server.cc(76)] Handling request: /shutdown 
+[0520/125023:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"","status":0,"value":null}
+[0520/125214:INFO:chromedriver_server.cc(76)] Handling request: /session/f03b84e52ecf8e6be5682424763590c0 
+[0520/125216:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"f03b84e52ecf8e6be5682424763590c0","status":0,"value":null}
+[0520/125216:INFO:chromedriver_server.cc(76)] Handling request: /shutdown 
+[0520/125216:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"","status":0,"value":null}

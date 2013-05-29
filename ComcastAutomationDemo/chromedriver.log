@@ -1,0 +1,5 @@
+[0528/155121:INFO:chromedriver_server.cc(76)] Handling request: /status 
+[0528/155121:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"","status":0,"value":{"build":{"version":"alpha"},"os":{"arch":"x86_64","name":"Windows NT","version":"6.1 SP1"}}}
+[0528/155121:INFO:chromedriver_server.cc(76)] Handling request: /session {"desiredCapabilities":{"platform":"ANY","browserName":"chrome","chromeOptions":{"args":[],"extensions":[]},"version":"","chrome.switches":[]}}
+[0528/155121:INFO:chrome_launcher.cc(74)] Using chrome from C:\Users\Anjum.Jamadar\AppData\Local\Google\Chrome\Application\chrome.exe
+[0528/155129:INFO:chromedriver_server.cc(81)] Done handling request: 200 {"sessionId":"","status":13,"value":{"message":"unknown error: Chrome version must be \u003E= 26.0.1395.0\nfrom unknown error: version info doesn't include string 'Browser'\n  (Driver info: chromedriver=0.8,platform=Windows NT 6.1 SP1 x86_64)"}}
